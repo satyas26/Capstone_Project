@@ -5,6 +5,9 @@
 This project performs **Sentiment Analysis** on an emotions dataset obtained from Kaggle. 
 The objective is to build a machine learning model capable of accurately classifying text into predefined emotion categories (e.g., joy, anger, sadness, fear, love, surprise).
 
+Dataset
+https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp/data
+
 The project covers the complete end-to-end data science workflow:
 
 * Data cleaning and preprocessing
