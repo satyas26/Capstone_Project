@@ -1,165 +1,240 @@
-# Sentiment Analysis on Emotions Dataset
-
-## 📌 Project Overview
-
-This project performs **Sentiment Analysis** on an emotions dataset obtained from Kaggle. 
-The objective is to build a machine learning model capable of accurately classifying text into predefined emotion categories (e.g., joy, anger, sadness, fear, love, surprise).
-
-Dataset
-https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp/data
-
-The project covers the complete end-to-end data science workflow:
-
-* Data cleaning and preprocessing
-* Exploratory Data Analysis (EDA)
-* Feature engineering
-* Model development
-* Model evaluation and interpretation
-* Visualization of results
-
+# Sentiment Analysis on Emotions Dataset  
+**Capstone Project – End-to-End NLP Pipeline**
 
 ---
 
-## 📊 Dataset Description
+## Project Overview
 
-The dataset consists of text samples labeled with emotion categories. Each record contains:
+This project builds a **multi-class emotion classification system** using Natural Language Processing (NLP) techniques on a Kaggle emotions dataset.
 
-* **Text** – A sentence or short paragraph
-* **Emotion Label** – The emotion expressed in the text
+The objective is to automatically classify text into human emotions such as:
 
-### Target Classes
+- Joy  
+- Anger  
+- Sadness  
+- Fear  
+- Love  
+- Surprise  
 
-Examples of emotions:
+This project demonstrates a **complete data science workflow**, including:
 
-* Joy
-* Anger
-* Sadness
-* Fear
-* Love
-* Surprise
-
----
-
-# 🔎 Data Cleaning and Preprocessing
-
-The dataset was cleaned and prepared for modeling using the following steps:
-
-### ✅ Missing Values
-
-* Checked for null values.
-* No significant missing data detected.
-* If present, missing values were removed or imputed appropriately.
-
-### ✅ Duplicate Records
-
-* Duplicate entries were identified and removed to avoid bias.
-
-### ✅ Text Cleaning
-
-* Converted text to lowercase
-* Removed punctuation
-* Removed special characters
-* Removed stopwords
-* Tokenization applied
-* Lemmatization applied (if included in notebook)
-
-### ✅ Feature Engineering
-
-* Transformed raw text into numerical features using:
-
-  * **TF-IDF Vectorization**
-* Created clean feature matrices for model training.
+- Data cleaning and preprocessing  
+- Exploratory Data Analysis (EDA)  
+- Feature engineering  
+- Handling class imbalance  
+- Model development (ML + Deep Learning)  
+- Model evaluation and interpretation  
+- Actionable insights and recommendations  
 
 ---
 
-# 📈 Exploratory Data Analysis (EDA)
+## Business Understanding
 
-EDA was performed to understand:
+Understanding human emotions from text has significant real-world applications:
 
-* Distribution of emotion classes
-* Text length distribution
-* Class imbalance
-* Word frequency patterns
+- Customer feedback analysis  
+- Social media sentiment tracking  
+- Chatbots and virtual assistants  
+- Mental health monitoring  
 
-### Visualizations Included:
-
-* Class distribution bar plots
-* Word count distribution histograms
-* Most frequent words per emotion
-* Correlation heatmaps (if applicable)
-
-### Key Insights:
-
-* Some emotions are more frequent than others.
-* Text lengths vary significantly.
-* Class imbalance was evaluated before modeling.
-
-All plots include:
-
-* Descriptive titles
-* Labeled axes
-* Appropriate scaling
-* Clear legends
-* Proper subplot usage when necessary
+Organizations can leverage emotion classification to **improve customer experience, detect dissatisfaction early, and make data-driven decisions at scale**.
 
 ---
 
-# 🤖 Modeling
+## Dataset Description
 
-## Model Selection
+- Source: Kaggle Emotions Dataset  
+- Type: Multi-class text classification  
 
-* Naive Bayes baseline model was implemented
-
----
-
-## 📏 Evaluation Metrics
-
-The following evaluation metrics were used:
-
-* **Accuracy**
-* **Precision**
-* **Recall**
-* **F1-score**
-
-### Rationale for Metric Selection
-
-* Accuracy provides overall correctness.
-* F1-score balances precision and recall, especially important if class imbalance exists.
-* Confusion matrix helps understand per-class performance.
+### Features:
+- **Text**: Input sentence  
+- **Emotion Label**: Target variable  
 
 ---
 
-## 📊 Model Performance
+# Data Cleaning and Preprocessing
 
-The Multinomial Naive Bayes model, using TF-IDF vectorization, achieved an overall accuracy of 62%. 
-While it showed high precision for specific labels like anger (0.96) and love (1.00), it struggled with recall for minority classes and completely failed to predict the surprise category.
+The dataset was cleaned to ensure high-quality input for modeling.
 
-### Interpretation
+### Steps Performed:
 
-* The model performs well across majority classes.
-* Some confusion exists between closely related emotions.
-* Performance could improve using:
-
-  * Hyperparameter tuning
-  * Deep learning models (LSTM/BERT)
-  * Class balancing techniques
+- Converted text to lowercase  
+- Removed punctuation and special characters  
+- Removed duplicate records  
+- Checked and handled missing values  
+- Standardized text formatting  
 
 ---
 
-# 📌 Key Findings
+# Feature Engineering
 
-* Emotion classification can be effectively performed using TF-IDF features.
-* Logistic Regression provides a strong and interpretable baseline.
-* Class imbalance may impact minority emotion detection.
-* Text preprocessing significantly improves performance.
+To improve model performance, additional features were created:
+
+### Engineered Features:
+- Text length  
+- Word count  
+- Average word length  
+
+### Text Vectorization:
+- Applied **TF-IDF Vectorization** to convert text into numerical features  
+
+### Final Feature Set:
+- Combined **TF-IDF features + engineered numerical features**  
 
 ---
 
-# 🚀 Future Improvements
+# Exploratory Data Analysis (EDA)
 
-* Implement deep learning models (LSTM, GRU)
-* Use transformer-based models (BERT)
-* Apply hyperparameter tuning (GridSearchCV)
-* Handle class imbalance using SMOTE
+EDA was conducted to understand patterns and distributions in the dataset.
+
+### Key Analyses:
+- Distribution of emotion classes (categorical)  
+- Text length and word count (continuous)  
+- Class imbalance detection  
+
+### Visualizations:
+
+- Bar plots for categorical variables (emotion distribution)  
+- Histograms for continuous variables (text length, word count)  
+- Subplots used for comparative analysis  
+
+---
+
+# Handling Class Imbalance
+
+The dataset exhibited imbalance across emotion classes.
+
+### Technique Used:
+- **RandomOverSampler**
+
+### Impact:
+- Improved model performance on minority classes  
+- Reduced bias toward majority classes  
+
+---
+
+# Modeling
+
+Multiple models were implemented and compared.
+
+---
+
+## Baseline Model: Multinomial Naive Bayes
+
+- Trained using TF-IDF features  
+- Fast and effective for text classification  
+
+---
+
+## Advanced Model: Random Forest
+
+- Used combined feature set (TF-IDF + engineered features)  
+
+### Hyperparameter Tuning:
+- Performed using **GridSearchCV**
+
+### Parameters Tuned:
+- Number of estimators  
+- Max depth  
+- Minimum samples split  
+- Minimum samples leaf  
+
+---
+
+## Deep Learning Model: Bidirectional LSTM
+
+### Architecture:
+- Embedding layer  
+- Bidirectional LSTM  
+- Dense layers with dropout  
+- Softmax output layer  
+
+### Training:
+- Loss: Sparse categorical crossentropy  
+- Optimizer: Adam  
+- Epochs: 5  
+- Validation split: 10%  
+
+Captures contextual relationships in text  
+
+---
+
+# Cross-Validation
+
+- Applied during model tuning using **GridSearchCV**  
+- Ensures model generalization and robustness  
+- Prevents overfitting  
+
+---
+
+# Evaluation Metrics
+
+The following metrics were used:
+
+- Accuracy  
+- Precision  
+- Recall  
+- F1-score  
+- Confusion Matrix  
+
+### Rationale:
+
+- **Accuracy**: Overall correctness  
+- **Precision/Recall**: Performance on individual classes  
+- **F1-score**: Balance between precision and recall  
+- **Confusion Matrix**: Detailed class-level insights  
+
+---
+
+# Model Performance & Interpretation
+
+### Key Observations:
+
+- Naive Bayes provides a strong baseline  
+- Random Forest improves performance with additional features  
+- Oversampling significantly improves recall for minority classes  
+- LSTM captures contextual meaning better than traditional models  
+
+### Interpretation:
+
+- Traditional ML models perform well for structured features  
+- Deep learning models are better suited for capturing semantic relationships  
+- Class imbalance handling is critical for fair model performance  
+
+---
+
+# Key Findings & Insights
+
+## Technical Findings
+
+- TF-IDF is a strong baseline for text classification  
+- Feature engineering improves model performance  
+- Oversampling significantly enhances minority class detection  
+- LSTM models capture deeper contextual relationships  
+
+---
+
+## Actionable Recommendations
+
+- Use class balancing techniques in production systems  
+- Implement deep learning models for better accuracy  
+- Deploy models in real-time feedback systems  
+- Continuously retrain models with new data  
+
+---
+
+# Conclusion
+
+This project successfully demonstrates a **complete end-to-end NLP pipeline** for emotion classification.
+
+It integrates:
+
+- Data preprocessing  
+- Feature engineering  
+- EDA  
+- Class imbalance handling  
+- Multiple machine learning models  
+- Deep learning (LSTM)  
+- Model evaluation and interpretation  
 
 ---
