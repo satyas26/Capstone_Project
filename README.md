@@ -210,7 +210,6 @@ The following metrics were used:
 
 ### Random Forest (Best ML Model)
 - Accuracy: 85%
-- Macro F1: 0.85
 - Strong across all classes
 
 ### LSTM Model
