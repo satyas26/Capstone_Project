@@ -44,7 +44,8 @@ Organizations can leverage emotion classification to **improve customer experien
 ## Dataset Description
 
 - Source: Kaggle Emotions Dataset  
-- Type: Multi-class text classification  
+- Type: Multi-class text classification
+- Ref: https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp/data
 
 ### Features:
 - **Text**: Input sentence  
