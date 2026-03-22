@@ -187,40 +187,44 @@ The following metrics were used:
 
 ---
 
-# Model Performance & Interpretation
+## Model Performance Summary
 
-### Key Observations:
-
-- Naive Bayes provides a strong baseline  
-- Random Forest improves performance with additional features  
-- Oversampling significantly improves recall for minority classes  
-- LSTM captures contextual meaning better than traditional models  
-
-### Interpretation:
-
-- Traditional ML models perform well for structured features  
-- Deep learning models are better suited for capturing semantic relationships  
-- Class imbalance handling is critical for fair model performance  
+| Model | Accuracy | Weighted F1 | Key Insight |
+|------|---------|------------|------------|
+| Naive Bayes (Baseline) | 62% | 0.53 | Poor minority class performance |
+| Naive Bayes + Oversampling | 81% | 0.82 | Major improvement in balance |
+| Random Forest (Tuned) | 85% | 0.85 | Best overall ML model |
+| LSTM (Deep Learning) | 89% | 0.89 | Best contextual understanding |
 
 ---
 
-# Key Findings & Insights
+## Detailed Model Results
 
-## Technical Findings
+### Naive Bayes (Baseline)
+- Accuracy: 62%
+- Weak on minority classes (surprise, love)
 
-- TF-IDF is a strong baseline for text classification  
-- Feature engineering improves model performance  
-- Oversampling significantly enhances minority class detection  
-- LSTM models capture deeper contextual relationships  
+### Naive Bayes + Oversampling
+- Accuracy: 81%
+- Balanced performance across classes
+
+### Random Forest (Best ML Model)
+- Accuracy: 85%
+- Macro F1: 0.85
+- Strong across all classes
+
+### LSTM Model
+- Accuracy: 89%
+- Best at capturing context in text
 
 ---
 
-## Actionable Recommendations
+## Key Insights
 
-- Use class balancing techniques in production systems  
-- Implement deep learning models for better accuracy  
-- Deploy models in real-time feedback systems  
-- Continuously retrain models with new data  
+- Class imbalance significantly impacts performance  
+- Oversampling improves fairness  
+- Random Forest provides strong baseline  
+- LSTM achieves highest accuracy with context awareness  
 
 ---
 
